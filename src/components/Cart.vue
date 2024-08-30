@@ -66,7 +66,7 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRouter } from '../route'
 import { t } from '../i18n'
 import { store } from '../store'
 import IcPlus from '../assets/img/ic_plus.png'

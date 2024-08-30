@@ -2,11 +2,9 @@
   <div class="home-wrap">
     <DemoHeader />
     <NavMenu />
-    <router-view v-slot="{ Component }">
-      <transition name="page-fade" mode="out-in" appear>
-        <component :is="Component" />
-      </transition>
-    </router-view>
+    <transition name="page-fade" mode="out-in" appear>
+      <router-view />
+    </transition>
     <DemoFooter />
   </div>
 </template>

@@ -1,0 +1,11 @@
+export * from './create-router'
+export * from './i-route'
+export * from './i-router'
+export * from './router-helpers'
+export * from './use-route'
+export * from './use-router'
+export * from './i-route-meta'
+export * from './href-to-url'
+export * from './router-injection-keys'
+
+export { default as RouterView } from './components/RouterView.vue'

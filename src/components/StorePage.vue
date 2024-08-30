@@ -1,5 +1,5 @@
 <template>
-  <div :key="$route.name" class="store-page">
+  <div :key="name" class="store-page">
     <div class="container">
       <div class="store-title">
         {{ t(`demo.${name}.title`) }}
@@ -13,7 +13,7 @@
 
 <script lang="ts" setup>
 import { computed, onMounted, ref, watch } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute } from '../route'
 import { t } from '../i18n'
 import StoreProduct from './StoreProduct.vue'
 import { IProduct } from '../types'
@@ -23,7 +23,7 @@ const route = useRoute()
 
 const products = ref<IProduct[]>([])
 
-const name = computed(() => route.name?.toString())
+const name = computed(() => route.value?.name.toString())
 
 watch(name, (newName) => refreshProducts(newName?.toString()))
 

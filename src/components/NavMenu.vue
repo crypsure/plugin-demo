@@ -6,8 +6,8 @@
           v-for="item in ['mens', 'womens', 'accessories', 'checkout']"
           :key="item"
           class="nav-item"
-          :class="{ active: route.name === item, [item]: true }"
-          @click="$router.push({ name: item })"
+          :class="{ active: route?.name === item, [item]: true }"
+          @click="router.push({ name: item })"
         >
           {{ t(`demo.${item}.label`) }}
         </div>
@@ -22,20 +22,21 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from '../route'
 import { t } from '../i18n'
 import IcSearch from '../assets/img/ic_search.png'
 
 const route = useRoute()
+const router = useRouter()
 
 const underlineStyle = computed(() => {
-  if (route.name === 'mens') {
+  if (route.value?.name === 'mens') {
     return { left: '-1px', width: '44px' }
   }
-  if (route.name === 'womens') {
+  if (route.value?.name === 'womens') {
     return { left: '64px', width: '70px' }
   }
-  if (route.name === 'accessories') {
+  if (route.value?.name === 'accessories') {
     return { left: '156px', width: '103px' }
   }
   return { left: '283px', width: '81px' }
