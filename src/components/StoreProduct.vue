@@ -31,21 +31,21 @@
 </template>
 
 <script lang="ts" setup>
-import { useI18n } from 'petite-vue-i18n'
-import { computed, toRefs } from 'vue'
+import { t } from '../i18n'
+import { watch, ref, toRefs } from 'vue'
 import { IProduct } from '../types'
 import { store } from '../store'
-
-const { t } = useI18n()
 
 const props = defineProps<{
   product: IProduct
 }>()
 const { product } = toRefs(props)
 
-const size = computed(() => {
-  return product.value.sizes[0]
+watch(product, () => {
+  size.value = product.value.sizes[0]
 })
+
+const size = ref(product.value.sizes[0])
 
 const addCart = () => {
   store.addItem(

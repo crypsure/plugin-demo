@@ -20,9 +20,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useI18n } from 'petite-vue-i18n'
-
-const { t } = useI18n()
+import { t } from '../../i18n'
 
 withDefaults(
   defineProps<{
@@ -63,7 +61,7 @@ withDefaults(
     display: flex;
     justify-content: space-between;
     letter-spacing: 0.42px;
-    @mixin title-medium 12px;
+    @mixin title-semibold 12px;
     margin-top: 2px;
     color: $text-med2;
   }

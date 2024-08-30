@@ -1,6 +1,21 @@
 <template>
-  <router-view />
+  <div class="home-wrap">
+    <DemoHeader />
+    <NavMenu />
+    <router-view v-slot="{ Component }">
+      <transition name="page-fade" mode="out-in" appear>
+        <component :is="Component" />
+      </transition>
+    </router-view>
+    <DemoFooter />
+  </div>
 </template>
+
+<script setup lang="ts">
+import DemoFooter from './components/DemoFooter.vue'
+import DemoHeader from './components/DemoHeader.vue'
+import NavMenu from './components/NavMenu.vue'
+</script>
 
 <style lang="postcss">
 @import './css/font.postcss';
@@ -23,6 +38,13 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
+}
+
+.home-wrap {
+  background-color: $bg-light;
+  display: flex;
+  flex-direction: column;
+  font-family: $font-text;
 }
 
 .container {

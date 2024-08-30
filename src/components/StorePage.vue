@@ -14,13 +14,12 @@
 <script lang="ts" setup>
 import { computed, onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
+import { t } from '../i18n'
 import StoreProduct from './StoreProduct.vue'
 import { IProduct } from '../types'
 import { getProducts } from '../api'
-import { useI18n } from 'petite-vue-i18n'
 
 const route = useRoute()
-const { t } = useI18n()
 
 const products = ref<IProduct[]>([])
 

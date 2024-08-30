@@ -1,9 +1,9 @@
 <template>
-  <div class="header-cart" @click="show(true)" @click.stop>
+  <div class="header-cart" @click="show(!showCart)" @click.stop>
     <div class="header-cart-title">
       <img :src="IcCart" />
       <div v-if="quantity">
-        {{ t('demo.header_cart_items', quantity) }}
+        {{ itemsText }}
       </div>
       <div v-else>
         {{ t('demo.header_cart') }}
@@ -23,12 +23,10 @@
 
 <script lang="ts" setup>
 import { computed, ref } from 'vue'
-import { useI18n } from 'petite-vue-i18n'
+import { t } from '../i18n'
 import { store } from '../store'
 import IcCart from '../assets/img/ic_cart.png'
 import Cart from './Cart.vue'
-
-const { t } = useI18n()
 
 const clickEventType = document.ontouchstart !== null ? 'click' : 'touchstart'
 
@@ -36,6 +34,14 @@ const showCart = ref(false)
 const cart = ref()
 
 const quantity = computed(() => store.quantity.value)
+
+const itemsText = computed(() => {
+  const text = t('demo.header_cart_items')
+  if (quantity.value === 1) {
+    return `1 ITEM ${text}`
+  }
+  return `${quantity.value} ITEMS ${text}`
+})
 
 const checkClickAway = (event: MouseEvent) => {
   const el = cart ? cart.value?.$el : null

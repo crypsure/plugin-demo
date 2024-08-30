@@ -12,10 +12,8 @@
 </template>
 
 <script lang="ts" setup>
-import { useI18n } from 'petite-vue-i18n'
+import { t } from '../i18n'
 import HeaderCart from './HeaderCart.vue'
-
-const { t } = useI18n()
 </script>
 
 <style lang="postcss">

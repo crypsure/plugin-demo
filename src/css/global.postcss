@@ -18,25 +18,21 @@ $border-med: #d8d8d8;
 $paypal-light: #0079c1;
 $card-blue: #286cc3;
 
+$font-text: 'CrypsureText', 'sans-serif';
+
 @define-mixin title-bold {
-  font-family: 'Montserrat', 'Avenir', 'sans-serif';
+  font-family: $font-text;
   font-weight: 700;
 }
 
 @define-mixin title-semibold $size {
-  font-family: 'Montserrat', 'Avenir', 'sans-serif';
+  font-family: $font-text;
   font-weight: 600;
   font-size: $size;
 }
 
-@define-mixin title-medium $size {
-  font-family: 'Montserrat', 'Avenir', 'sans-serif';
-  font-weight: 500;
-  font-size: $size;
-}
-
 @define-mixin title-regular $size {
-  font-family: 'Montserrat', 'Avenir', 'sans-serif';
+  font-family: $font-text;
   font-weight: 400;
   font-size: $size;
 }

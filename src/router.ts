@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '/src/views/Home.vue'
 import StorePage from '/src/components/StorePage.vue'
 import Checkout from '/src/components/Checkout.vue'
 
@@ -15,40 +14,34 @@ const router = createRouter({
   history: createWebHistory(),
   routes: [
     {
+      name: 'home',
       path: '/',
-      component: Home,
-      meta: { title: 'Crypsure Plugin' },
-      children: [
-        {
-          name: 'home',
-          path: '',
-          redirect: 'mens',
-        },
-        {
-          path: 'mens',
-          name: 'mens',
-          component: StorePage,
-          meta: { title: "Mens's Store" },
-        },
-        {
-          path: 'womens',
-          name: 'womens',
-          component: StorePage,
-          meta: { title: "Womens's Store" },
-        },
-        {
-          path: 'accessories',
-          name: 'accessories',
-          component: StorePage,
-          meta: { title: 'Accessories Store' },
-        },
-        {
-          path: 'checkout',
-          name: 'checkout',
-          component: Checkout,
-          meta: { title: 'Crypsure Checkout' },
-        },
-      ],
+      alias: '/plugin-demo',
+      redirect: 'mens',
+    },
+    {
+      path: '/mens',
+      name: 'mens',
+      component: StorePage,
+      meta: { title: "Mens's Store" },
+    },
+    {
+      path: '/womens',
+      name: 'womens',
+      component: StorePage,
+      meta: { title: "Womens's Store" },
+    },
+    {
+      path: '/accessories',
+      name: 'accessories',
+      component: StorePage,
+      meta: { title: 'Accessories Store' },
+    },
+    {
+      path: '/checkout',
+      name: 'checkout',
+      component: Checkout,
+      meta: { title: 'Crypsure Checkout' },
     },
   ],
 })

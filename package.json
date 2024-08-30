@@ -14,12 +14,12 @@
   },
   "dependencies": {
     "@crypsure/plugin": "link:../crypsure-plugin/packages/plugin",
-    "petite-vue-i18n": "9.14.0",
     "vue": "^3.4.38",
     "vue-router": "^4.4.3"
   },
   "devDependencies": {
     "@intlify/core-base": "^9.14.0",
+    "@laynezh/vite-plugin-lib-assets": "^0.5.23",
     "@rollup/plugin-terser": "^0.4.4",
     "@vitejs/plugin-vue": "^5.1.2",
     "oxlint": "^0.7.2",
@@ -30,6 +30,7 @@
     "prettier": "^3.3.3",
     "stylelint": "^16.8.2",
     "stylelint-config-standard": "^36.0.1",
-    "vite": "^5.4.1"
+    "vite": "^5.4.1",
+    "vite-plugin-css-injected-by-js": "^3.5.1"
   }
 }

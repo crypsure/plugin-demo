@@ -1,8 +1,8 @@
 import Vue from '@vitejs/plugin-vue'
 import path from 'path'
 import terser from '@rollup/plugin-terser'
-// import libAssetsPlugin from '@laynezh/vite-plugin-lib-assets'
-// import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js'
+import libAssetsPlugin from '@laynezh/vite-plugin-lib-assets'
+import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js'
 import { defineConfig } from 'vite'
 
 const resolve = (p: string): string => path.resolve(__dirname, p)
@@ -32,17 +32,18 @@ export default defineConfig({
   assetsInclude: /\.(pdf|jpg|png|webm|mp4|svg|wasm)$/,
   plugins: [
     Vue(),
-    /*
     libAssetsPlugin({
-      limit: 1024 * 4,
+      limit: 1024 * 200,
       include: /\.(pdf|jpg|jpeg|png|webm|mp4|svg|ttf|woff|woff2|wasm)$/,
     }),
     cssInjectedByJsPlugin(),
     externalVue(outputName),
-    */
   ],
   worker: {
     format: 'es',
+  },
+  define: {
+    'process.env.NODE_ENV': JSON.stringify('production'),
   },
   build: {
     outDir: './dist',
